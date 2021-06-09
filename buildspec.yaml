@@ -30,8 +30,8 @@ steps:
 #     name: "SaveResult"
 #     command: |
 #       export major_version=1.2
-artifacts:
-  - name: docktest
-    type: BINARY
-    files:
-      - docktest.tar
+
+outputArtifacts:
+  - name: docktest    # Eg: foo-java-app
+    type: BINARY     # Enum: [BINARY, DOCKER_IMAGE]
+    location: docktest.tar 
