@@ -33,7 +33,5 @@ steps:
 artifacts:
   - name: docktest
     type: BINARY
-    baseDirectory: docktest.tar
-  - name: docktestdocker
-    type: DOCKER_IMAGE
-    baseDirectory: docktest
+    files:
+      - docktest-result.txt
