@@ -37,4 +37,4 @@ outputArtifacts:
     location: docktest.tar 
   - name: docktestImage    # Eg: foo-java-app
     type: DOCKER_IMAGE     # Enum: [BINARY, DOCKER_IMAGE]
-    location: iad.ocir.io/idllbnfszw6v/docktest:1.0 
+    location: docktest
