@@ -5,10 +5,10 @@ runAs: root
 shell: bash
 env:
   variables:
-    "version" : "3.2"
+    "version" : "3.3"
     "repoName": "docktest"
     "major_version": "4"
-    "minor_version": "3"
+    "minor_version": "4"
     
   exportedVariables:
     - minor_version
