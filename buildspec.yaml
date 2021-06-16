@@ -5,14 +5,14 @@ runAs: root
 shell: bash
 env:
   variables:
-    "version" : "3.4"
+#     "version" : "3.4"
     "repoName": "docktest"
     "major_version": "4"
     "minor_version": "4"
     
   exportedVariables:
     - minor_version
-    - version
+#     - version
     - major_version
     - repoName
 
