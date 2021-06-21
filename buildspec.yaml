@@ -42,6 +42,6 @@ outputArtifacts:
   - name: docktest    # Eg: foo-java-app
     type: BINARY     # Enum: [BINARY, DOCKER_IMAGE]
     location: docktest.tar 
-  - name: docktestImage    # Eg: foo-java-app
+  - name: docktestimage    # Eg: foo-java-app
     type: DOCKER_IMAGE     # Enum: [BINARY, DOCKER_IMAGE]
     location: docktest
