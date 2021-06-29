@@ -18,6 +18,7 @@ steps:
     name: "trtdtd"
     command: |
       export testEnv=123
+      export minor_version=4
       echo $testEnv > output1.txt
 outputArtifacts:
   - name: output1
