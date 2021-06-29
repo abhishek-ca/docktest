@@ -1,39 +1,25 @@
 version: 0.1
 component: build
-timeoutInSeconds: 600
+timeoutInSeconds: 6000
 runAs: root
 shell: bash
-# env:
-#   variables:
-#     "major_version" : "1.1"
-#   exportedVariables:
-#     - major_version
-
+env:
+  variables:
+    "testEnv" : "testValue1"
+    "major_version" : "5"
+    "minor_version" : "2"
+  exportedVariables:
+    - testEnv
+    - major_version
+    - minor_version
 steps:
-#   - type: Command
-#     name: "PreReq install"
-#     command: |
-#       yum -y install curl
-#   - type: Command
-#     name: "Dockerize"
-#     command: |
-#       docker build -t docktest .
-#   - type: Command
-#     name: "Save"
-#     command: |
-#       docker save docktest -o docktest.tar
-#   - type: Command
-#     name: "SaveResult"
-#     command: |
-#       ls >> dockImagesResult.txt
-# #   - type: Command
-# #     name: "SaveResult"
-# #     command: |
-# #       export major_version=1.2
-# outputArtifacts:
-#   - name: docktest
-#     type: BINARY
-#     location: docktest.tar
-#   - name: docktestdocker
-#     type: DOCKER_IMAGE
-#     location: docktest
+  - type: Command
+    timeoutInSeconds: 400
+    name: "trtdtd"
+    command: |
+      export testEnv=123
+      echo $testEnv > output1.txt
+outputArtifacts:
+  - name: output1
+    type: BINARY
+    location: output1.txt
