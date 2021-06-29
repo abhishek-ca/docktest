@@ -5,42 +5,141 @@ runAs: root
 shell: bash
 env:
   variables:
-    "testEnv" : "Hello, This is a test variable!!!"
-    "VERS" : 20.0
-  vaultVariables:
-    gl_tok: ocid1.vaultsecret.oc1.iad.amaaaaaa34lgq7aam4mnjel4gfp76bug3uxnjscsxpzxyrjqqxosdjhkpuaq
+    "testEnv" : "testValue1"
+    "major_version": "5"
+    "minor_version": "0"
   exportedVariables:
-    - VERS
- 
+    - testEnv
+    - major_version
+    - minor_version
+
+# inputArtifacts:
+#   - name: hello-dev-jar
+#     location: /workspace/Source1/hello123.class
 
 steps:
+#   - type: Command
+#     name: "Build Source"
+#     timeoutInSeconds: 400
+#     command: |
+#       echo $testEnv
+#       echo OCI_STAGE_ID: $OCI_STAGE_ID
+#       echo OCI_PIPELINE_ID: $OCI_PIPELINE_ID
+#       echo OCI_BUILD_RUN_ID: $OCI_BUILD_RUN_ID
+#       echo OCI_TRIGGER_COMMIT_HASH: $OCI_TRIGGER_COMMIT_HASH
+#       echo OCI_TRIGGER_SOURCE_BRANCH_NAME: $OCI_TRIGGER_SOURCE_BRANCH_NAME
+#       echo OCI_TRIGGER_SOURCE_URL: $OCI_TRIGGER_SOURCE_URL
+#       echo OCI_TRIGGER_EVENT_TYPE: $OCI_TRIGGER_EVENT_TYPE
+#       echo OCI_PRIMARY_SOURCE_DIR: $OCI_PRIMARY_SOURCE_DIR
+#       echo OCI_WORKSPACE_DIR: $OCI_WORKSPACE_DIR
+#       echo OCI_BUILD_STAGE_NAME: $OCI_BUILD_STAGE_NAME
+#       echo OCI_PRIMARY_SOURCE_NAME: $OCI_PRIMARY_SOURCE_NAME
+#       apt-get ::install -y maven
+#       export minor_version=135
+#       ls -lart
+#       echo "hello world"
+#       cd /workspace
+#       ls -lart
+#       cd /workspace/Source1
+#       ls -lart
+#       git branch
+#       cat README.md > output1.txt
+#       echo "sdfs" >> output1.txt
+#       cd /workspace/Source
+#       cd src/main/java/org/example/
+#       echo "commit7" > output.txt
+#       export $testEnv=test
+#       javac HelloWorld.java
+#     onFailure:
+#       - type: Command
+#         timeoutInSeconds: 400
+#         command: |
+#           echo "Handling Failure"
+#           echo "Failure successfully handled"
+#         timeoutInSeconds: 400
+#         runAs: root
+#   - type: Command
+#     timeoutInSeconds: 400
+#     name: "Dockerizer & Test"
+#     command: |
+#       docker build -t iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0 .
+#       docker run iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
+#     onFailure:
+#       - type: Command
+#         command: |
+#           echo "Handling Failure"
+#           echo "Failure successfully handled"
+#         timeoutInSeconds: 400
+#         runAs: root
   - type: Command
-    name: "PreReq install"
+    timeoutInSeconds: 400
+    name: "trtdtd"
     command: |
-      yum -y install curl
-  - type: Command
-    name: "Dockerize"
-    command: |
-      docker build . --tag docktest:1.0
-  - type: Command
-    name: "Run the app Locally"
-    command: |
-      docker run -d -p 5000:5000 --name docktest docktest:1.0
-  - type: Command
-    name: "Shutdown the app"
-    command: |
-      docker stop docktest >> docktest_result.txt
-      docker save -o hello-test_1.0.tar docktest:1.0
-      docker rm docktest >> docktest_result.txt
-      date >> docktest_result.txt
-      echo ${gl_tok} >> docktest_result.txt
+      export testEnv=123
+      export minor_version=1
+      echo $testEnv > output1.txt
+
 outputArtifacts:
-  - name: docktest_result
+  - name: output1
     type: BINARY
-    location: docktest_result.txt
-    artifactParams:
-      testEnv: ${testEnv}
-      vers: 1.0
+    location: output1.txt
+#   - name: output
+#     type: BINARY
+#     location: src/main/java/org/example/output.txt
+#   - name: hello-dev-jar
+#     type: BINARY
+#     artifactParams:
+#       testKey: testVal
+#       testKey1: ${testEnv}
+#       testKey2: ${invalidVar}
+#     location: src/main/java/org/example/HelloWorld.class
+#   - name: hello-dev-image
+#     type: DOCKER_IMAGE
+#     location: iad.ocir.io/id204we8d65n/balaregistry/hello-bala:1.0
+
+# version: 0.1
+# component: build
+# timeoutInSeconds: 6000
+# runAs: root
+# shell: bash
+# env:
+#   variables:
+#     "testEnv" : "Hello, This is a test variable!!!"
+#     "VERS" : 20.0
+#   vaultVariables:
+#     gl_tok: ocid1.vaultsecret.oc1.iad.amaaaaaa34lgq7aam4mnjel4gfp76bug3uxnjscsxpzxyrjqqxosdjhkpuaq
+#   exportedVariables:
+#     - VERS
+ 
+
+# steps:
+#   - type: Command
+#     name: "PreReq install"
+#     command: |
+#       yum -y install curl
+#   - type: Command
+#     name: "Dockerize"
+#     command: |
+#       docker build . --tag docktest:1.0
+#   - type: Command
+#     name: "Run the app Locally"
+#     command: |
+#       docker run -d -p 5000:5000 --name docktest docktest:1.0
+#   - type: Command
+#     name: "Shutdown the app"
+#     command: |
+#       docker stop docktest >> docktest_result.txt
+#       docker save -o hello-test_1.0.tar docktest:1.0
+#       docker rm docktest >> docktest_result.txt
+#       date >> docktest_result.txt
+#       echo ${gl_tok} >> docktest_result.txt
+# outputArtifacts:
+#   - name: docktest_result
+#     type: BINARY
+#     location: docktest_result.txt
+#     artifactParams:
+#       testEnv: ${testEnv}
+#       vers: 1.0
       
 # version: 0.1
 # component: build
