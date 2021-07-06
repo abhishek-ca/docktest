@@ -1,3 +1,27 @@
+# version: 0.1
+# component: build
+# timeoutInSeconds: 6000
+# runAs: root
+# shell: bash
+# env:
+#   variables:
+#     "testEnv" : "testValue1"
+#     "major_version" : "5"
+
+#   exportedVariables:
+#     - testEnv
+#     - major_version
+# steps:
+#   - type: Command
+#     timeoutInSeconds: 400
+#     name: "trtdtd"
+#     command: |
+#       export testEnv=123
+#       echo $testEnv > output1.txt
+# outputArtifacts:
+#   - name: output1
+#     type: BINARY
+#     location: output1.txt
 version: 0.1
 component: build
 timeoutInSeconds: 6000
@@ -7,10 +31,11 @@ env:
   variables:
     "testEnv" : "testValue1"
     "major_version" : "5"
-
+    #"minor_version" : "2"
   exportedVariables:
     - testEnv
     - major_version
+    #- minor_version
 steps:
   - type: Command
     timeoutInSeconds: 400
@@ -18,7 +43,9 @@ steps:
     command: |
       export testEnv=123
       echo $testEnv > output1.txt
+
 outputArtifacts:
   - name: output1
     type: BINARY
     location: output1.txt
+
