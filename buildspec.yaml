@@ -21,7 +21,7 @@ steps:
       echo $testEnv > output1.txt
 
 outputArtifacts:
-  - name: output1
+  - name: output2
     type: BINARY
     location: output1.txt
 #   - name: output
