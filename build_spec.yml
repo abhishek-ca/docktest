@@ -6,7 +6,7 @@
 # env:
 #   variables:
 #     "testEnv" : "testValue1"
-#     "major_version" : "5"
+#     "major_version" : "50"
 
 #   exportedVariables:
 #     - testEnv
@@ -30,11 +30,11 @@ shell: bash
 env:
   variables:
     "testEnv" : "testValue1"
-    "major_version" : "5"
+    "major_version" : "50"
     #"minor_version" : "2"
-#   exportedVariables:
-#     - testEnv
-#     - major_version
+  exportedVariables:
+    - testEnv
+    - major_version
     #- minor_version
 steps:
   - type: Command
