@@ -30,7 +30,7 @@ shell: bash
 env:
   variables:
     "testEnv" : "testValue1"
-    "major_version" : "50"
+    "major_version" : "100"
     #"minor_version" : "2"
   exportedVariables:
     - testEnv
@@ -44,8 +44,8 @@ steps:
       export testEnv=123
       echo $testEnv > output1.txt
 
-outputArtifacts:
-  - name: output1
-    type: BINARY
-    location: output1.txt
+# outputArtifacts:
+#   - name: output1
+#     type: BINARY
+#     location: output1.txt
 
