@@ -6,12 +6,12 @@ shell: bash
 env:
   variables:
     "testEnv" : "testValue1"
-    "major_version" : "5"
-    "minor_version" : "2"
+#     "major_version" : "5"
+#     "minor_version" : "2"
   exportedVariables:
     - testEnv
-    - major_version
-    - minor_version
+#     - major_version
+#     - minor_version
 steps:
   - type: Command
     timeoutInSeconds: 400
