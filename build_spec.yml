@@ -44,8 +44,8 @@ steps:
       export testEnv=123
       echo $testEnv > output1.txt
 
-# outputArtifacts:
-#   - name: output1
-#     type: BINARY
-#     location: output1.txt
+outputArtifacts:
+  - name: output1
+    type: BINARY
+    location: output1.txt
 
